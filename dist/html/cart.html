@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>拍拍店</title><script src="../../node_modules/jquery/dist/jquery.min.js"></script><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/cart.css"><script src="../js/cookie.js"></script><script>$(function () {
+            var login = cookie.get('login')
+
+            if (login) {
+                login = decodeURI(login)
+                var template = `<span><a href="javascript:;" class="login">${login}</a></span>
+                <span><a class="reg reset">注销</a></span>`;
+                $('.header-right').html('');
+                $('.header-right').append(template)
+                $(".name").html(login)
+                $(".p2>span").html(login)
+            }
+            $('.reset').on('click', function () {
+                cookie.remove('login');
+                location.reload();
+            })
+        })</script><style>a {
+            cursor: pointer;
+        }</style></head><body><header><div class="centered clearfix"><h1><a href="./index.html"><img src="../img/logo.png" alt="logo"></a></h1><div class="header-right"><span><a href="./login.html" class="login">登录</a></span> <span><a href="./reg.html" class="reg">注册</a></span></div></div></header><container><div class="centered" style="margin-top: 20px;overflow: hidden;margin-bottom: 20px;"><div class="cart clearfix"><p>收货信息</p><div class="item-addr clearfix"><ul class="clearfix"><li class="name">XXX<i></i></li></ul><a href="#">更换地址</a></div><p>商品信息</p><div class="shop-data"></div><div class="info"><p class="p1">应付总额：<span></span></p><p class="p2">收货人： <span></span></p></div><input type="button" value="提交订单" id="cartbtn"></div></div></container><footer><div class="foot-top"><div class="centered"><img src="../img/bottom_slogan@2x.306d20c.png" alt="来拍拍"></div></div><div class="foot-bottom"><div class="centered"><p class="p1"><a href="../html/contact.html">关于拍拍</a> <a href="#">联系我们</a></p><p class="p2"><a href="//www.miibeian.gov.cn" target="_blank">粤ICP备13011462号-2</a> <span>客服电话：400-612-2333</span> <span>Copyright©2017-2018 拍拍paipai.com版权所有</span></p></div></div></footer></body></html><script>$(function () {
+        var shop = cookie.get('shop');
+        if (shop) {
+            shop = JSON.parse(shop);
+            var idList = shop.map(elm => elm.id).join();
+            $.ajax({
+                type: "get",
+                url: "../php/shop.php",
+                data: {
+                    "idList": idList
+                },
+                dataType: "json",
+                success: function (response) {
+                    var template = "";
+                    response.forEach(function (elm) {
+                        var pic = JSON.parse(elm.pic);
+                        var arr = shop.filter((val, i) => {
+                            return val.id === elm.id;
+                        });
+                        template = `
+                        <div class="clearfix" >
+                        <div class="details"  style="float: left;width: 90%;">
+                        <img src="${pic[0].small}" alt="商品图" style="margin:0 10px;">
+                        <span>${elm.title}</span>
+                        <div class="p-num" style="margin-top:20px;">
+                            数量:${arr[0].num}
+                        </div>
+                        <span class="money" style="font-size:16px;margin-top:10px;">总价¥<b>${(arr[0].num*elm.price).toFixed(2)}</b></span>
+                        <button  style="float: left;margin-top:10px;" class="delete" id="${elm.id}">删除</button>
+                    </div>
+                </div>`;
+                        $('.shop-data').append(template);
+                        $('#' + elm.id).on('click', function () {
+                            var id = elm.id;
+                            var b = JSON.parse(cookie.get('shop')).filter(function (
+                                elm, i) {
+                                return elm.id != id
+                            });
+
+                            var c = JSON.stringify(b);
+                            cookie.set("shop", c, 1);
+                            $(this)[0].parentNode.parentNode.parentNode.remove();
+                            $('.p1>span').html(function () {
+                                var num = 0;
+                                for (var i = 0; i < $('.money>b')
+                                    .length; i++) {
+                                    num += ($('.money>b')[i].innerHTML - 0);
+                                }
+                                return '¥' + num;
+                            })
+                        })
+                    });
+
+                    $('.p1>span').html(function () {
+                        var num = 0;
+                        for (var i = 0; i < $('.money>b').length; i++) {
+                            num += ($('.money>b')[i].innerHTML - 0);
+                        }
+                        return '¥' + num;
+                    })
+
+                }
+            });
+        }
+    });</script>

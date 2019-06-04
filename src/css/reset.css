@@ -1,0 +1,108 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+dt,
+dd,
+fieldset,
+legend,
+input,
+img,
+select,
+dl {
+    margin: 0;
+    padding: 0
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    list-style: none;
+}
+
+img,
+fieldset {
+    border: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+textarea,
+select,
+body {
+    font: 14px;
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+}
+
+img {
+    /* 设置图片间隙问题 */
+    display: block;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+i,
+b,
+strong,
+em,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-style: normal
+}
+
+input {
+    vertical-align: middle;
+}
+
+body,
+html {
+    width: 100%;
+}
+
+.centered {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+container {
+    display: block;
+}

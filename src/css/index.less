@@ -1,0 +1,284 @@
+body {
+    background: #f7f7f7;
+}
+
+.banner {
+    height: 432px;
+    position: relative;
+    margin-bottom: 32px;
+
+    .slider {
+        height: 100%;
+        width: 990px;
+
+        img {
+            height: 100%;
+            position: absolute;
+        }
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 290px;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.88;
+        background: #2e2e2e;
+        color: #ffffff;
+
+        ul {
+            border-bottom: 1px solid rgba(77, 77, 77, .8);
+
+            li {
+                overflow: hidden;
+                box-sizing: border-box;
+                padding: 0 24px;
+                height: 48px;
+                line-height: 48px;
+
+                &:hover {
+                    background-color: #4d4d4d;
+                }
+
+                a {
+                    font-size: 12px;
+                    color: #cccccc;
+
+                    &:hover {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        .more {
+            height: 47px;
+
+            a {
+                color: #ccc;
+                display: block;
+                line-height: 47px;
+                text-align: center;
+                font-size: 12px;
+
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+    .release {
+        width: 190px;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        img {
+            width: 100%;
+
+            &:nth-of-type(1) {
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+
+            &:nth-of-type(1):hover {
+                transition: all .3s ease;
+                box-shadow: 0 10px 16px 0 rgba(0, 0, 0, .1)
+            }
+        }
+    }
+}
+
+container {
+    display: block;
+    overflow: hidden;
+
+    .title {
+        text-align: center;
+        margin-bottom: 10px;
+
+        img {
+            width: 196px;
+            height: 61px;
+            margin: 0 auto;
+        }
+    }
+
+    .con {
+        margin-bottom: 32px;
+
+        li {
+            float: left;
+            margin-right: 10px;
+
+            &:hover {
+                transition: all .3s ease;
+                box-shadow: 0 10px 16px 0 rgba(0, 0, 0, .1);
+            }
+
+            img {
+                width: 290px;
+                height: 180px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .main {
+        margin-bottom: 60px;
+
+        .item {
+            transition: box-shadow .3s ease;
+            float: left;
+            width: 590px;
+            height: 366px;
+            background: #fff;
+            padding: 0 20px 0 30px;
+            margin: 0 10px 20px 0;
+            &:hover {
+                box-shadow: 0 10px 16px 0 rgba(0, 0, 0, .1);
+            }
+
+            &:nth-of-type(2n) {
+                margin-right: 0px;
+            }
+
+            
+
+            &:hover {
+                box-shadow: 0 10px 16px 0 rgba(0, 0, 0, .1);
+            }
+
+            &:nth-of-type(2n) {
+                margin-right: 0px;
+            }
+
+            .item-title {
+                font-size: 20px;
+                padding: 28px 0 17px;
+
+                span {
+                    display: inline-block;
+                    width: 8px;
+                    height: 20px;
+                    background: #ff3434;
+                    margin-right: 8px;
+                    vertical-align: middle;
+                }
+            }
+
+            ul {
+                overflow: hidden;
+
+                li {
+                    float: left;
+                    width: 170px;
+                    margin-right: 10px;
+
+                    a {
+                        display: block;
+                        overflow: hidden;
+                        width: 170px;
+                        height: 170px;
+
+                        &:nth-of-type(1)>img {
+                            transition: all 0.3s;
+                        }
+
+                        &:nth-of-type(1)>img:hover {
+                            transform: scale(1.1, 1.1)
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .jindon {
+                        width: 60px;
+                        height: 16px;
+                        display: inline-block;
+                        margin-bottom: 5px;
+                        vertical-align: middle;
+                        margin-right: 6px;
+                    }
+
+                    .shopname {
+                        box-sizing: border-box;
+                        height: 43px;
+                        line-height: 20px;
+                        font-size: 14px;
+                        padding: 0 10px;
+                        letter-spacing: 1px;
+                        overflow: hidden;
+                        display: block;
+                        color: #2e2e2e;
+                        margin-top: 12px;
+                    }
+
+                    .shop-describe {
+                        height: 16px;
+                        font-size: 12px;
+                        padding: 0 10px;
+                        margin-bottom: 12px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        display: block;
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding: 0 10px;
+                        color: #999;
+                    }
+
+                    .price {
+                        color: red;
+                        font-size: 18px;
+                        padding: 0 10px;
+
+                        span {
+                            font-size: 12px;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.iconfont {
+    width: 55px;
+    height: 55px;
+    color: #fff;
+    font-size: 40px !important;
+    border-radius: 50%;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    background: #2e2e2e;
+    line-height: 55px;
+    text-align: center;
+
+    &:hover {
+        background-color: #007bff;
+    }
+
+    b {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        background: red;
+        opacity: .8;
+        position: absolute;
+        right: 0;
+        top: 1%;
+        font-size: 30%;
+        line-height: 20px;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拍拍店</title>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/details.css">
+    <script src="../../node_modules/tuupola-jquery_lazyload/jquery.lazyload.min.js"></script>
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $("img").lazyload({
+                effect: "fadeIn",
+                threshold: 0
+            });
+
+        });
+    </script>
+    <script src="../js/cookie.js"></script>
+    <script>
+        $(function () {
+            var login = cookie.get('login')
+
+            if (login) {
+                login = decodeURI(login)
+                var template = `<span><a href="javascript:;" class="login">${login}</a></span>
+                <span><a class="reg reset">注销</a></span>`;
+                $('.header-right').html('');
+                $('.header-right').append(template)
+            }
+            $('.reset').on('click', function () {
+                cookie.remove('login');
+                location.reload();
+            })
+        })
+    </script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="centered clearfix">
+            <h1>
+                <a href="./index.html">
+                    <img src="../img/logo.png" alt="logo">
+                </a>
+            </h1>
+            <div class="header-right">
+                <span><a href="./login.html" class="login">登录</a></span>
+                <span><a href="./reg.html" class="reg">注册</a></span>
+            </div>
+        </div>
+    </header>
+    <container>
+        <div class="centered main">
+            <script>
+                $(function () {
+                    var id = location.search.split('=')[1];
+                    $.ajax({
+                        type: "get",
+                        url: "../php/getItem.php",
+                        dataType: "json",
+                        data: {
+                            id: id
+                        },
+
+                        success: function (response) {
+                            var pic = JSON.parse(response.pic);
+                            var template = `'
+                                    <p class="p1"><a href="./index.html">首页</a><span>&gt;</span><a href="#" class="p1-a">${response.title}</a></p>
+                        <div class="fl clearfix">
+                            <div class="img-box"><img data-original="${pic[1].big}" alt="${response.title}"></div>
+                            <div class="text-box">
+                                <p class="fl-title">${response.title}</p>
+                                <div class="txt-price">
+                                    <p>售卖价<span class="money"><i>￥</i>${response.price}</span></p>
+                                    <p>库&nbsp;&nbsp;&nbsp;&nbsp;存<span class="oldmoney num">${response.num}</span></p>
+                                    <input type="number" value="1" min="1" max="${response.num}" id="num" style="margin-bottom: 20px"   ><br>
+                                    <span>包邮</span><span>几乎全新</span><span>有发票</span>
+                                </div>
+                                <div class="user">
+                                    <div class="user-top">
+                                        <img data-original="../img/maijia.png" alt="">
+                                        <div class="user-main">
+                                            <img data-original="../img/avatar@2x.png" alt="">
+                                            <div class="user-name">
+                                                <p>卖家XXX <span class="bg1"><i></i>已实名</span> <span class="bg2"><i></i>信用极好</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="button" value="加入购物车" id="btn" class="add">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-detail">
+                            <div class="product-title">
+                                <img data-original="../img/title.8dfb8a8.png" alt="卖家描述">
+                            </div>
+                            <div class="con">
+                                <p>${response.details}</p>
+                                <div class="invoice">
+                                    <p class="inv-p1">购买日期<span>2016-06-19</span></p>
+                                    <p class="inv-p1">发票信息<span>电子发票</span></p>
+                                </div>
+                                <img data-original="${pic[1].big}" alt="${response.title}">
+                            </div>
+                        </div>
+                        <div class="recommend">
+                            <div class="rec-title">
+                                <i></i>
+                                <span>商品推荐</span>
+                                <i></i>
+                            </div>
+                            <ul>
+            
+                            </ul>
+                        </div>
+                                `;
+                            $('.main').append(template).find('.add').on('click', function () {
+                                addShopCar(response.id, response.price, $('#num').val());
+
+                            });
+                            $(function () {
+                                $("img").lazyload({
+                                    effect: "fadeIn",
+                                    threshold: 0
+                                });
+
+                            });
+                        }
+                    });
+
+                    if(cookie.get('shop')){
+                        var shop = cookie.get('shop');
+                        shop = JSON.parse(shop);
+                        $('.iconfont>b').html(Object.keys(shop).length);
+                    }
+
+                    function addShopCar(id, price, num) {
+                        var shop = cookie.get('shop');
+                        var product = {
+                            "id": id,
+                            "price": price,
+                            "num": num
+                        };
+                        if (shop) {
+                            shop = JSON.parse(shop); // cookie中如果有数据 这个数据是json字符串 转成对象
+                            if (shop.some(elm => elm.id == id)) {
+                                shop.forEach(function (elm, i) {
+                                    elm.id == id ? elm.num = num : null;
+                                });
+                            } else {
+                                shop.push(product);
+                            }
+                            cookie.set('shop', JSON.stringify(shop), 1);
+                        } else {
+                            shop = [];
+                            shop.push(product);
+                            cookie.set('shop', JSON.stringify(shop), 1);
+                        }
+                        $('.iconfont>b').html(Object.keys(shop).length);
+                    }
+                })
+            </script>
+        </div>
+    </container>
+    <footer>
+        <div class="foot-top">
+            <div class="centered">
+                <img src="../img/bottom_slogan@2x.306d20c.png" alt="来拍拍">
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <div class="centered">
+                <p class="p1">
+                    <a href="../html/contact.html">关于拍拍</a>
+                    <a href="#">联系我们</a>
+                </p>
+                <p class="p2">
+                    <a href="//www.miibeian.gov.cn" target="_blank">粤ICP备13011462号-2</a>
+                    <span>客服电话：400-612-2333</span>
+                    <span>Copyright©2017-2018 拍拍paipai.com版权所有</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <a href="../html/cart.html" style="display: block;"><i class="iconfont icon-shoppingCart-full"><b>0</b></i></a>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        $(function () {
+            $.ajax({
+                type: "get",
+                url: "../php/getproduct.php",
+                dataType: "json",
+                success: function (response) {
+                    var prolist = $('.recommend>ul');
+                    var template = '';
+                    response.forEach(function (elm, i) {
+                        var pic = JSON.parse(elm.pic);
+                        template = `
+                                <li><a href="./details.html?id=${elm.id}">
+                                    <img data-original="${pic[0].small}" alt="1"></a>
+                                <a href="./details.html?id=${elm.id}" class="shopname"><img data-original="../img/jindon.png" alt="京东转卖" class="jindon">${elm.title}</a>
+                            <span class="price"><span>￥</span>${elm.price}</span>
+                    </li>
+                        `;
+                        prolist.append(template);
+                        $(function () {
+                            $("img").lazyload({
+                                effect: "fadeIn",
+                                threshold: 0
+                            });
+
+                        });
+                    });
+
+                }
+            });
+        });
+    }
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/contact.css">
+    <script src="../js/cookie.js"></script>
+    <script>
+        $(function () {
+            var login = cookie.get('login')
+
+            if (login) {
+                login = decodeURI(login)
+                var template = `<span><a href="javascript:;" class="login">${login}</a></span>
+                <span><a class="reg reset">注销</a></span>`;
+                $('.header-right').html('');
+                $('.header-right').append(template)
+            }
+            $('.reset').on('click', function () {
+                cookie.remove('login');
+                location.reload();
+            })
+        })
+    </script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="centered clearfix">
+            <h1>
+                <a href="./index.html">
+                    <img src="../img/logo.png" alt="logo">
+                </a>
+            </h1>
+            <div class="header-right">
+                <span><a href="./login.html" class="login">登录</a></span>
+                <span><a href="./reg.html" class="reg">注册</a></span>
+            </div>
+        </div>
+    </header>
+    <container>
+        <div class="centered">
+            <div class="centered-banner">
+                <img src="../img/about_banner@2x.b407a6e.png" alt="">
+            </div>
+            <div class="content-inner">
+                <div class="content-about">
+                    <h3 class="content-about-title">
+                        关于拍拍
+                    </h3>
+                    <p class="content-about-text">
+                        拍拍是京东集团旗下的专业二手商品交易平台。拍拍业务主要覆盖二手商品销售，二手商品回收及商品租赁业务，也有个人闲置交易业务，旨在为满足用户各类场景下对二手商品的交易需求。
+                        拍拍以用户需求为核心，以质量管理为保障，秉持物尽其用，延续物品生命价值，创造更多生活可能的理念，致力于通过建立统一标准，构建二手行业基础设施，有效规范二手行业交易，树立二手行业标杆，旨在为用户提供更加专业快捷、安全有保障的产品与服务，成为最受用户信赖的专业二手交易平台。
+                    </p>
+                    <div class="gr"></div>
+                </div>
+                <div id="contact" class="content-contact">
+                    <h3 class="content-contact-title">联系我们</h3>
+                    <div class="cf">
+                        <div class="content-contact-item"><span>商务合作：</span> <a href="mailto:sunzhanquan@jd.com"
+                                class="red">wangtianying@jd.com</a></div>
+                        <div class="content-contact-item"><img src="../img/微博.png" alt="" class="weibo"> <span>微博帐号：</span>
+                            <span>拍拍二手</span></div>
+                        <div class="content-contact-item"><span>品牌合作：</span> <a href="mailto:liuyingying8@jd.com"
+                                class="red">liuyingying8@jd.com</a></div>
+                        <div class="content-contact-item"><img src="../img/微信.png" alt="" class="wechat"> <span>公众号：</span>
+                            <span>拍拍二手</span></div>
+                        <div class="content-contact-item"><span>客服电话：</span> <span>400-612-2333</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </container>
+    <footer>
+        <div class="foot-top">
+            <div class="centered">
+                <img src="../img/bottom_slogan@2x.306d20c.png" alt="来拍拍">
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <div class="centered">
+                <p class="p1">
+                    <a href="#">关于拍拍</a>
+                    <a href="#">联系我们</a>
+                </p>
+                <p class="p2">
+                    <a href="//www.miibeian.gov.cn" target="_blank">粤ICP备13011462号-2</a>
+                    <span>客服电话：400-612-2333</span>
+                    <span>Copyright©2017-2018 拍拍paipai.com版权所有</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

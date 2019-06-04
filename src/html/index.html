@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拍拍店</title>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <script src="../../node_modules/tuupola-jquery_lazyload/jquery.lazyload.min.js"></script>
+    <link rel="stylesheet" href="../../node_modules/resource/meSlider.css">
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $("img").lazyload({
+                effect: "fadeIn",
+                threshold: 0
+            });
+
+        });
+    </script>
+    <script src="../js/cookie.js"></script>
+    <script>
+        $(function () {
+            var login = cookie.get('login')
+
+            if (login) {
+                login = decodeURI(login)
+                var template = `<span><a href="javascript:;" class="login">${login}</a></span>
+                <span><a class="reg reset">注销</a></span>`;
+                $('.header-right').html('');
+                $('.header-right').append(template)
+            }
+            $('.reset').on('click', function () {
+                cookie.remove('login');
+                location.reload();
+            })
+        })
+    </script>
+    <style>
+        a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="centered clearfix">
+            <h1>
+                <a href="./index.html">
+                    <img data-original="../img/logo.png" alt="logo">
+                </a>
+            </h1>
+            <div class="header-right">
+                <span><a href="./login.html" class="login">登录</a></span>
+                <span><a href="./reg.html" class="reg">注册</a></span>
+            </div>
+        </div>
+    </header>
+    <div class="banner centered">
+        <div id="slider" class="slider"></div>
+        <div class="nav-list">
+            <ul>
+                <li><span class="left">热门</span><span class="right"><a href="#">手机</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">笔记本电脑</a></span></li>
+                <li><span class="left">手机数码</span><span class="right"><a href="#">手机</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">耳机耳麦</a></span></li>
+                <li><span class="left">电脑办公</span><span class="right"><a href="#">笔记本</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">平板电脑</a></span>
+                </li>
+                <li><span class="left">电脑配件</span><span class="right"><a href="#">显示器</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">显卡</a></span></li>
+                <li><span class="left">摄影摄像</span><span class="right"><a href="#">单反相机</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">微单相机</a></span>
+                </li>
+                <li><span class="left">奢侈品</span><span class="right"><a href="#">手表</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">箱包</a></span></li>
+                <li><span class="left">家用电器</span><span class="right"><a href="#">冰箱</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">衣机</a></span></li>
+                <li><span class="left">图书</span><span class="right"><a href="#">教材</a>&nbsp;&nbsp;&nbsp;<a
+                            href="#">励志</a></span></li>
+            </ul>
+            <div class="more"><a href="#">查看更多</a></div>
+        </div>
+        <div class="release">
+            <img data-original="../img/entrance.018e382.png" alt="发布闲置">
+            <img data-original="../img/ad.8629c1c.png" alt="拍拍">
+        </div>
+    </div>
+    <container>
+        <div class="centered">
+            <div>
+                <div class="title"><img data-original="../img/title.a1fd4a8.png"></div>
+                <ul class="clearfix con">
+                    <li><img data-original="../img/entrance1.bcd00fa.png" alt="卖了换钱花"></li>
+                    <li><img data-original="../img/entrance2.a90b59d.png" alt="卖了换钱花"></li>
+                    <li><img data-original="../img/entrance3.1158af2.png" alt="卖了换钱花"></li>
+                    <li style="margin-right: 0px;"><img data-original="../img/entrance4.079adee.png" alt="卖了换钱花"></li>
+                </ul>
+            </div>
+            <div>
+                <div class="title"><img data-original="../img/title.db071a7.png"></div>
+                <div class="main clearfix">
+                    <div class="item">
+                        <div class="item-title"><span></span>大家电</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title"><span></span>数码配件</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title"><span></span>数码配件</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title"><span></span>数码配件</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title"><span></span>数码配件</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title"><span></span>数码配件</div>
+                        <div class="item-img">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </container>
+    <footer>
+        <div class="foot-top">
+            <div class="centered">
+                <img data-original="../img/bottom_slogan@2x.306d20c.png" alt="来拍拍">
+            </div>
+        </div>
+        <div class="foot-bottom">
+            <div class="centered">
+                <p class="p1">
+                    <a href="../html/contact.html">关于拍拍</a>
+                    <a href="#">联系我们</a>
+                </p>
+                <p class="p2">
+                    <a href="//www.miibeian.gov.cn" target="_blank">粤ICP备13011462号-2</a>
+                    <span>客服电话：400-612-2333</span>
+                    <span>Copyright©2017-2018 拍拍paipai.com版权所有</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <a href="../html/cart.html" style="display: block;"><i class="iconfont icon-shoppingCart-full"><b>0</b></i></a>
+    <script>
+        if (cookie.get('shop')) {
+            var shop = cookie.get('shop');
+            shop = JSON.parse(shop);
+            console.log(shop)
+            $('.iconfont>b').html(Object.keys(shop).length);
+        }
+    </script>
+</body>
+
+</html>
+<script>
+    $(function () {
+        $('#slider').sliders({
+            imgArr: ['../img/banner1.57aeb9e.png', '../img/banner2.def6353.png',
+                '../img/banner3.0861f56.png'
+            ],
+            autoLoop: true,
+            current: 1,
+            time: 3000,
+            vWidth: 990,
+        })
+    });
+</script>
+<script src="../../node_modules/resource/sliderMe.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type: "get",
+            url: "../php/getproduct.php",
+            dataType: "json",
+            success: function (response) {
+                var prolist = $('.item-img>ul');
+                var template = '';
+                var j = 0;
+                response.forEach(function (elm, i) {
+                    var pic = JSON.parse(elm.pic);
+                    template = `
+                        <li><a href="./details.html?id=${elm.id}">
+                            <img data-original="${pic[0].small}"  alt="1"></a>
+                                    <a href="./details.html?id=${elm.id}" class="shopname"><img data-original="../img/jindon.png" alt="京东转卖"
+                                            class="jindon">${elm.title}</a>
+                                    <span class="shop-describe">${elm.details}</span>
+                                    <span class="price">￥${elm.price}</span>
+                                </li>
+                        `;
+                    prolist.eq(parseInt(j / 3)).append(template);
+                    j++;
+                    $(function () {
+                        $("img").lazyload({
+                            effect: "fadeIn",
+                            threshold: 0
+                        });
+
+                    });
+                });
+
+            }
+        });
+    });
+</script>

@@ -1,0 +1,343 @@
+container {
+    background-color: #f3f3f3;
+    display: block;
+    overflow: hidden;
+
+    .centered {
+
+        .p1 {
+            height: 52px;
+            line-height: 52px;
+            font-size: 14px;
+
+            a {
+                &:nth-child(1) {
+                    font-weight: 700;
+                    color: #303133;
+                    transition: color .2s cubic-bezier(.645, .045, .355, 1);
+                }
+
+                &:nth-last-child(1) {
+                    color: #606266;
+                    transition: color .2s cubic-bezier(.645, .045, .355, 1);
+                }
+
+                &:hover {
+                    color: red;
+                }
+            }
+
+            span {
+                font-size: 16px;
+                color: #ccc;
+                padding: 0 5px;
+            }
+        }
+    }
+
+    .fl {
+        background: #fff;
+        padding: 30px;
+        margin-bottom: 20px;
+
+        .img-box {
+            float: left;
+            position: relative;
+            width: 522px;
+            height: 522px;
+            margin-bottom: 10px;
+
+            img {
+                border: 1px solid #e9e9e9;
+                width: 100%;
+            }
+        }
+
+        .text-box {
+            margin-left: 30px;
+            width: 578px;
+            float: left;
+
+            .fl-title {
+                font-size: 20px;
+                color: #333;
+                margin-bottom: 20px;
+                overflow: hidden;
+            }
+
+            .txt-price {
+                padding: 25px 30px;
+                background: #f7f7f7;
+
+                p {
+                    font-size: 14px;
+                    color: #999;
+                    margin-bottom: 16px;
+
+                    span {
+                        margin-left: 24px;
+                    }
+
+                    .money {
+                        color: #ff3434;
+                        font-size: 28px;
+                        font-weight: 700;
+                        line-height: 28px;
+
+                        i {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .oldmoney {
+                        font-size: 20px;
+                        color: #666;
+                        line-height: 20px;
+
+                        i {
+                            font-size: 16px;
+                        }
+                    }
+
+                }
+
+                &>span {
+                    padding: 2px 4px;
+                    margin-right: 10px;
+                    border-radius: 2px;
+                    border: 1px solid #ff3434;
+                    font-size: 12px;
+                    color: #ff3434;
+                }
+            }
+
+            .user {
+                overflow: hidden;
+                position: relative;
+                margin-top: 10px;
+                padding: 20px 30px 16px;
+                border: 1px solid #e9e9e9;
+
+                .user-top {
+                    padding-bottom: 20px;
+                    overflow: hidden;
+                    border-bottom: 1px dotted #ccc;
+
+                    &>img {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 48px;
+                        height: 48px;
+                    }
+
+                    .user-main {
+                        img {
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 50%;
+                            float: left;
+                            margin-right: 15px;
+                        }
+
+                        .user-name {
+                            p {
+                                font-size: 14px;
+                                margin-right: 10px;
+                                outline-color: #333;
+
+                                span {
+                                    background: #fff0f0;
+                                    color: #ff3434;
+                                    font-size: 12px;
+                                    line-height: 16.2px;
+                                    padding: 2px 8px;
+                                    margin-left: 10px;
+
+                                    &:nth-of-type(2) {
+                                        i {
+                                            background-image: url(../img/信誉.png);
+                                        }
+                                    }
+
+                                    i {
+                                        display: inline-block;
+                                        background: url(../img/实名.png) no-repeat 0 7px;
+                                        background-size: 100%;
+                                        width: 10px;
+                                        height: 16px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            #btn {
+                padding: 6px 16px;
+                background: #ff3434;
+                color: #fff;
+                cursor: pointer;
+                border: 0;
+                line-height: 28px;
+                font-size: 24px;
+                border: 1px solid #e9e9e9;
+                margin-top: 16px;
+            }
+        }
+
+    }
+
+    .product-detail {
+        box-sizing: border-box;
+        float: left;
+        width: 790px;
+        margin-right: 10px;
+        background: #fff;
+        padding: 40px 80px;
+        margin-bottom: 20px;
+
+        .product-title {
+            text-align: center;
+            margin-bottom: 22px;
+
+            img {
+                width: 120px;
+                height: 27px;
+                display: inline-block;
+            }
+        }
+
+        .con {
+            &>img {
+                margin-bottom: 20px;
+            }
+
+            &>p {
+                font-size: 14px;
+                line-height: 24px;
+                color: 333;
+                letter-spacing: 1px;
+            }
+
+            .invoice {
+                background: url(../img/bill.05e2e31.png) no-repeat;
+                background-size: 100%;
+                padding: 20px 0 20px 25px;
+                margin-bottom: 20px;
+                width: 100%;
+                height: 88px;
+
+                p {
+                    color: #999;
+                    font-size: 16px;
+                    margin-right: 24px;
+                    margin-bottom: 10px;
+
+                    span {
+                        font-size: 16px;
+                        margin-left: 30px;
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+
+    .recommend {
+        box-sizing: border-box;
+        background: #fff;
+        width: 390px;
+        float: right;
+        padding: 23px 20px 0;
+        margin-bottom: 20px;
+
+        .rec-title {
+            margin-bottom: 23px;
+            text-align: center;
+            font-size: 14px;
+
+            i {
+                display: inline-block;
+                width: 14px;
+                height: 8px;
+                background: url(../img/tuijian.png) no-repeat;
+                background-size: 100%;
+            }
+        }
+
+        ul {
+            margin-right: -10px;
+
+            li {
+                float: left;
+                width: 170px;
+                overflow: hidden;
+                margin: 0 10px 24px 0;
+                vertical-align: top;
+
+                .shopname {
+                    font-size: 14px;
+                    color: #333;
+                    display: block;
+                    height: 42px;
+                    line-height: 20px;
+                    letter-spacing: 1px;
+                    overflow: hidden;
+
+                    .jindon {
+                        width: 60px;
+                        height: 16px;
+                        display: inline-block;
+                        margin-bottom: 5px;
+                        vertical-align: middle;
+                        margin-right: 6px;
+                    }
+                }
+
+                .price {
+                    span {
+                        font-size: 12px;
+                    }
+
+                    font-size: 18px;
+                    padding: 0 10px;
+                    color: #ff3434;
+                }
+            }
+        }
+    }
+}
+.iconfont {
+    width: 55px;
+    height: 55px;
+    color: #fff;
+    font-size: 40px !important;
+    border-radius: 50%;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    background: #2e2e2e;
+    line-height: 55px;
+    text-align: center;
+
+    &:hover {
+        background-color: #007bff;
+    }
+
+    b {
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        background: red;
+        opacity: .8;
+        position: absolute;
+        right: 0;
+        top: 1%;
+        font-size: 30%;
+        line-height: 20px;
+        font-weight: bold;
+    }
+}
